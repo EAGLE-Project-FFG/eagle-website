@@ -5,7 +5,9 @@ import { Menu, X } from "lucide-react"
 
 const NAV_ITEMS = [
   { label: "Home", to: "/" },
+  { label: "News", to: "/news" },
   { label: "Project", to: "/project" },
+  { label: "Results", to: "/results" },
   { label: "Partners", to: "/partners" },
   { label: "Contact", to: "/contact" },
 ]
@@ -14,7 +16,7 @@ export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 w-full border-b z-50">
+    <nav className="fixed top-0 left-0 bg-white w-full border-b z-50">
       <div className="flex items-center justify-between px-4 h-16">
         {/* Logo + Project Name */}
         <NavLink to="/" className="flex items-center gap-2">
