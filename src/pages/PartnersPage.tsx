@@ -9,15 +9,15 @@ interface Partner {
 
 const partners: Partner[] = [
   {
-    name: "Partner One",
-    logoUrl: "/logos/partner1.png",
+    name: "Dirigenta",
+    logoUrl: "/dirigenta-logo.png",
     description:
       "Partner One is a leading provider of innovative solutions in the industry.",
     website: "https://partnerone.example.com",
   },
   {
-    name: "Partner Two",
-    logoUrl: "/logos/partner2.png",
+    name: "TU Wien",
+    logoUrl: "/tu-wien-logo.svg",
     description:
       "Partner Two collaborates internationally on research and development.",
     website: "https://partnertwo.example.com",
@@ -37,7 +37,7 @@ export default function PartnersPage() {
             <img
               src={partner.logoUrl}
               alt={`${partner.name} logo`}
-              className="mb-4 h-20 w-20 object-contain"
+              className="mb-4 max-h-40 max-w-40 object-contain"
             />
             <CardContent>
               <h2 className="mb-2 text-lg font-bold">{partner.name}</h2>
