@@ -1,59 +1,92 @@
+import { ExternalLink, Handshake } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { PageHeader } from "@/components/PageHeader";
 
-interface Partner {
+type Partner = {
   name: string;
-  logoUrl: string;
+  logos: string[];          // 1 or more logos
   description: string;
   website: string;
-}
+};
 
 const partners: Partner[] = [
   {
     name: "Dirigenta",
-    logoUrl: "/dirigenta-logo.png",
+    logos: ["/dirigenta-logo.png"],
     description:
-      "Partner One is a leading provider of innovative solutions in the industry.",
-    website: "https://partnerone.example.com",
+      "Dirigenta offers ML-driven analysis and simulation of application migration to the optimal host location in a highly efficient, data-driven way.",
+    website: "https://dirigenta.ch/",
   },
   {
-    name: "TU Wien",
-    logoUrl: "/tu-wien-logo.svg",
+    name: "TU Wien - Business Informatics Group",
+    logos: ["/tu-wien-logo.svg", "/big-logo.png"], // example: two logos
     description:
-      "Partner Two collaborates internationally on research and development.",
-    website: "https://partnertwo.example.com",
+      "Based at the Institute of Information Systems Engineering, our research unit focuses on business informatics that integrates theory and methods of information systems and computer science.",
+    website: "https://www.big.tuwien.ac.at/index.php",
   },
 ];
 
+function PartnerCard({ partner }: { partner: Partner }) {
+  return (
+    <Card
+      className="
+        group relative overflow-hidden rounded-2xl border bg-white/80 backdrop-blur
+        transition-all hover:shadow-xl hover:-translate-y-0.5
+        ring-1 ring-black/5
+      "
+    >
+      {/* subtle gradient rim */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 opacity-70" />
+
+      <CardContent className="relative p-6">
+        {/* Logos */}
+        <div className="mb-5 flex flex-wrap items-center justify-center gap-4">
+          {partner.logos.map((src, i) => (
+            <div
+              key={i}
+              className="flex h-20 w-28 items-center justify-center rounded-lg bg-muted/30 p-2 ring-1 ring-black/5"
+            >
+              <img
+                src={src}
+                alt={`${partner.name} logo ${i + 1}`}
+                className="max-h-16 max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+
+        <h3 className="text-lg font-semibold text-center">{partner.name}</h3>
+        <p className="mt-2 text-center text-sm text-muted-foreground">
+          {partner.description}
+        </p>
+
+        <div className="mt-5 flex justify-center">
+          <Button asChild variant="secondary" className="group/btn">
+            <a href={partner.website} target="_blank" rel="noopener noreferrer">
+              Visit Website
+              <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5" />
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function PartnersPage() {
   return (
-    <div className="container mx-auto mt-4 px-4 py-8">
-      <h1 className="mb-6 text-2xl font-semibold">Project Partners</h1>
-      <div className="grid gap-6 md:grid-cols-2">
-        {partners.map((partner) => (
-          <Card
-            key={partner.name}
-            className="flex flex-col items-center p-6 text-center"
-          >
-            <img
-              src={partner.logoUrl}
-              alt={`${partner.name} logo`}
-              className="mb-4 max-h-40 max-w-40 object-contain"
-            />
-            <CardContent>
-              <h2 className="mb-2 text-lg font-bold">{partner.name}</h2>
-              <p className="mb-3 text-muted-foreground">
-                {partner.description}
-              </p>
-              <a
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline"
-              >
-                Visit Website
-              </a>
-            </CardContent>
-          </Card>
+    <div className="container mx-auto px-4 py-8">
+      <PageHeader
+        icon={<Handshake className="h-8 w-8 text-blue-600" />}
+        title="Partners"
+        description="Project partners collaborating on EAGLE from industry and academia."
+      />
+
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {partners.map((p) => (
+          <PartnerCard key={p.name} partner={p} />
         ))}
       </div>
     </div>

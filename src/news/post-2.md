@@ -3,6 +3,8 @@ title: "News Post Example"
 date: "2024-08-05"
 author: "Philipp-Lorenz-Glaser"
 slug: "post-2"
+tags:
+    - Announcement
 ---
 
 # h1 Heading 8-)

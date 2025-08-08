@@ -1,7 +1,8 @@
-import { Card, CardContent } from "@/components/ui/card";
 import type { NewsEntry, NewsModule } from "@/interfaces/News";
+import { Newspaper } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { PageHeader } from "@/components/PageHeader";
+import { NewsItemCard } from "@/components/NewsItemCard";
 
 const newsFiles = import.meta.glob("/src/news/*.md", { eager: true });
 
@@ -13,6 +14,7 @@ function parseNews(): NewsEntry[] {
       date: m.attributes.date,
       author: m.attributes.author,
       slug: m.attributes.slug,
+      tags: m.attributes.tags ?? [],
       content: m.markdown,
     };
   });
@@ -28,23 +30,23 @@ export default function NewsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-2xl font-semibold">News</h1>
-      <div className="space-y-8">
-        {newsEntries.map((entry) => (
-          <Link to={`/news/${entry.slug}`} key={entry.slug} className="block">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="mb-2 text-xl font-bold">{entry.title}</h2>
-                <div className="mb-4 text-sm text-muted-foreground">
-                  {entry.date}
-                </div>
-                <div className="mb-4 text-sm text-muted-foreground">
-                  {entry.author}
-                </div>
-                <div className="mt-2 text-sm text-primary underline">Read</div>
-              </CardContent>
-            </Card>
-          </Link>
+      <PageHeader
+        icon={<Newspaper className="h-8 w-8 text-blue-600" />}
+        title="News"
+        description="Stay updated with the latest developments in the EAGLE project."
+      />
+
+      {/* Responsive grid: 1 col on mobile, 2 cols on md+ */}
+      <div className="mt-6 grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+        {newsEntries.map((n) => (
+          <NewsItemCard
+            key={n.slug}
+            to={`/news/${n.slug}`}
+            title={n.title}
+            date={n.date}
+            author={n.author}
+            tags={n.tags}
+          />
         ))}
       </div>
     </div>
