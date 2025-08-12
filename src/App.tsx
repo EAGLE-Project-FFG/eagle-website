@@ -7,6 +7,9 @@ import PartnersPage from "./pages/PartnersPage";
 import NewsPage from "./pages/NewsPage";
 import NewsDetailPage from "./pages/NewsDetailPage";
 import ProjectPage from "./pages/ProjectPage";
+import Footer from "./components/Footer";
+import ResultsPage from "./pages/ResultsPage";
+import ImprintPage from "./pages/ImprintPage";
 
 function App() {
   return (
@@ -18,10 +21,13 @@ function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:slug" element={<NewsDetailPage />} />
           <Route path="/project" element={<ProjectPage />} />
+          <Route path="/results" element={<ResultsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/imprint" element={<ImprintPage />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
