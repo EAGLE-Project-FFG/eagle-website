@@ -12,13 +12,13 @@ Built with [Vite](https://vite.dev/) + [React](https://react.dev/) + [TypeScript
 
 Install required dependencies:
 
-```bash
+```shell
 yarn install
 ```
 
 Start development locally:
 
-```bash
+```shell
 yarn dev
 ```
 
@@ -26,7 +26,7 @@ The website is by default available at [`http://localhost:5173/`](http://localho
 
 In addition, you can use [ESLint](https://eslint.org/) for static analysis and [Prettier](https://prettier.io/) for  formatting through the respective commands:
 
-```bash
+```shell
 # Run ESLint
 yarn lint
 
