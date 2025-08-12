@@ -22,7 +22,14 @@ export default function NavBar() {
         {/* Logo + Project Name */}
         <NavLink to="/" className="flex items-center gap-3">
           <img src="/eagle-logo.png" alt="EAGLE Logo" className="h-10 w-14 drop-shadow" />
-          <span className="text-2xl font-extrabold tracking-tighter">EAGLE</span>
+          <span className="text-3xl font-extrabold tracking-tight drop-shadow-[0_0.5px_0.5px_rgba(0,0,0,0.15)]">
+            <span className="bg-gradient-to-r from-[#C0D444] to-[#A4BA35] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(192,212,68,0.25)]">
+              EA
+            </span>
+            <span className="bg-gradient-to-r from-[#1E4A89] to-[#163C70] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(30,74,137,0.25)]">
+              GLE
+            </span>
+          </span>
         </NavLink>
 
         {/* Desktop Navigation */}

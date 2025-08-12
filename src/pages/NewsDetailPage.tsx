@@ -35,12 +35,12 @@ export default function NewsDetailPage() {
       {/* Back link */}
       <Link
         to="/news"
-        className="mb-6 inline-flex items-center text-sm font-medium text-primary hover:underline"
+        className="mb-6 inline-flex items-center text-md font-medium text-primary hover:underline"
       >
         ← Back to News
       </Link>
 
-      <Card className="rounded-2xl border bg-white/90 shadow-sm ring-1 ring-black/5">
+      <Card className="rounded-2xl border bg-white/90 shadow-sm ring-1 ring-black/5 max-w-4xl mx-auto">
         <CardContent className="p-6 md:p-8 text-left">
           {/* Title */}
           <h1 className="text-3xl font-bold tracking-tight mb-4">
@@ -82,7 +82,7 @@ export default function NewsDetailPage() {
           <Separator className="my-6" />
 
           {/* Markdown content */}
-          <div className="prose max-w-none text-muted-foreground prose-headings:text-foreground">
+          <div className="prose max-w-none prose-headings:text-foreground">
             <Markdown remarkPlugins={[remarkGfm]}>{entry.content}</Markdown>
           </div>
         </CardContent>

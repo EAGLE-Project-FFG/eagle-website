@@ -30,7 +30,7 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
           </h2>
 
           {/* Meta row */}
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/40 px-2 py-0.5">
               <CalendarDays className="h-4 w-4" />
               {prettyDate}
@@ -55,7 +55,7 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
           {/* Footer */}
           <Separator className="my-4" />
           <div className="flex items-center gap-1 text-sm font-medium text-primary mt-auto">
-            Read more
+            Read More
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </div>
         </CardContent>

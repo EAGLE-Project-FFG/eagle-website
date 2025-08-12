@@ -76,7 +76,7 @@ export default function Footer() {
 
             {/* Bottom bar with socials + legal */}
             <div className="border-t">
-                <div className="container mx-auto px-4 py-4 text-xs text-muted-foreground flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div className="container mx-auto px-4 py-2 text-xs text-muted-foreground flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                     <span>© {year} EAGLE. All rights reserved.</span>
 
                     {/* Socials: center on mobile, right on desktop */}
