@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="border-t bg-white/90 backdrop-blur">
       {/* Top area */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="mx-auto px-4 py-4">
         <div className="grid justify-center gap-8 md:grid-cols-3 md:items-center">
           {/* Brand */}
           <div className="space-y-2">
@@ -81,7 +81,7 @@ export default function Footer() {
 
       {/* Bottom bar with socials + legal */}
       <div className="border-t">
-        <div className="container mx-auto flex flex-col gap-3 px-4 py-2 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex flex-col gap-3 px-4 py-2 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <span>© {year} EAGLE. All rights reserved.</span>
 
           {/* Socials: center on mobile, right on desktop */}
