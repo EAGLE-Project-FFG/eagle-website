@@ -33,14 +33,14 @@ function PartnerCard({ partner }: { partner: Partner }) {
       <CardContent className="relative flex h-full flex-col py-2">
         {/* Logos */}
         <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
-          {partner.logos.map((src, i) => (
+          {partner.logos.map((src) => (
             <div
-              key={i}
+              key={`${partner.name}-${src}`}
               className="flex h-20 w-28 items-center justify-center rounded-lg bg-muted/30 p-2 ring-1 ring-black/5"
             >
               <img
                 src={src}
-                alt={`${partner.name} logo ${i + 1}`}
+                alt={`${partner.name} logo`}
                 className="max-h-16 max-w-full object-contain"
                 loading="lazy"
               />

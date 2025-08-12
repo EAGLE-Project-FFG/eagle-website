@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
+import reactX from 'eslint-plugin-react-x'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
@@ -13,6 +14,7 @@ export default tseslint.config([
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
+      reactX.configs['recommended-typescript'],
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
       eslintConfigPrettier

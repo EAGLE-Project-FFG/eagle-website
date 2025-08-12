@@ -12,6 +12,7 @@ type Props = {
   tags?: string[];
 };
 
+// eslint-disable-next-line react-x/no-unstable-default-props
 export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
   const prettyDate = new Date(date).toLocaleDateString(undefined, {
     year: "numeric",
