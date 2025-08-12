@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 
 type Partner = {
   name: string;
-  logos: string[];          // 1 or more logos
+  logos: string[];
   description: string;
   website: string;
 };
@@ -20,7 +20,7 @@ const partners: Partner[] = [
   },
   {
     name: "TU Wien - Business Informatics Group",
-    logos: ["/tu-wien-logo.svg", "/big-logo.png"], // example: two logos
+    logos: ["/tu-wien-logo.svg", "/big-logo.png"],
     description:
       "Based at the Institute of Information Systems Engineering, our research unit focuses on business informatics that integrates theory and methods of information systems and computer science.",
     website: "https://www.big.tuwien.ac.at/index.php",
@@ -29,19 +29,10 @@ const partners: Partner[] = [
 
 function PartnerCard({ partner }: { partner: Partner }) {
   return (
-    <Card
-      className="
-        group relative overflow-hidden rounded-2xl border bg-white/80 backdrop-blur
-        transition-all hover:shadow-xl hover:-translate-y-0.5
-        ring-1 ring-black/5
-      "
-    >
-      {/* subtle gradient rim */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 opacity-70" />
-
-      <CardContent className="relative p-6">
+    <Card className="group relative overflow-hidden rounded-2xl shadow-lg h-full">
+      <CardContent className="relative py-2 flex flex-col h-full">
         {/* Logos */}
-        <div className="mb-5 flex flex-wrap items-center justify-center gap-4">
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
           {partner.logos.map((src, i) => (
             <div
               key={i}
@@ -58,11 +49,12 @@ function PartnerCard({ partner }: { partner: Partner }) {
         </div>
 
         <h3 className="text-lg font-semibold text-center">{partner.name}</h3>
-        <p className="mt-2 text-center text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-muted-foreground text-left flex-grow">
           {partner.description}
         </p>
 
-        <div className="mt-5 flex justify-center">
+        {/* Button at the bottom */}
+        <div className="mt-4 flex justify-center">
           <Button asChild variant="secondary" className="group/btn">
             <a href={partner.website} target="_blank" rel="noopener noreferrer">
               Visit Website
@@ -84,7 +76,7 @@ export default function PartnersPage() {
         description="Project partners collaborating on EAGLE from industry and academia."
       />
 
-      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2">
         {partners.map((p) => (
           <PartnerCard key={p.name} partner={p} />
         ))}
