@@ -1,28 +1,52 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Construction } from "lucide-react";
+import { Link } from "react-router";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
-  return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-20">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-          EAGLE – Enterprise Architecture Knowledge Graph for Learning and Exploration
-        </h1>
+    return (
+        <section className="relative isolate min-h-[calc(100vh-4rem)] overflow-hidden">
+            <div className="container mx-auto flex min-h-[inherit] items-center justify-center px-4 py-20">
+                <div className="max-w-5xl text-center">
+                    {/* EAGLE branding */}
+                    <div className="mb-10 flex items-center justify-center gap-5">
+                        <img
+                            src="/eagle-logo.png"
+                            alt="EAGLE Logo"
+                            className="h-18 w-26 drop-shadow"
+                        />
+                        <span className="text-6xl sm:text-7xl font-extrabold tracking-tight drop-shadow-[0_0.5px_0.5px_rgba(0,0,0,0.15)]">
+                            <span className="bg-gradient-to-r from-[#C0D444] to-[#A4BA35] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(192,212,68,0.25)]">
+                                EA
+                            </span>
+                            <span className="bg-gradient-to-r from-[#1E4A89] to-[#163C70] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(30,74,137,0.25)]">
+                                GLE
+                            </span>
+                        </span>
+                    </div>
 
-        {/* Under construction card */}
-        <div className="mt-15 flex justify-center">
-          <Card className="max-w-md border-yellow-300 bg-yellow-50 shadow-md">
-            <CardContent className="flex items-center gap-3 p-4">
-              <Construction className="w-6 h-6 text-yellow-600" />
-              <div className="text-left">
-                <p className="font-medium text-yellow-800">
-                  Website under construction...
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
+                    {/* Title */}
+                    <h1 className="text-balance text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.02em] leading-[1.06]">
+                        <span className="block">Enterprise Architecture Knowledge Graph</span>
+                        <span className="block">for Learning &amp; Exploration</span>
+                    </h1>
+
+                    {/* Subtext */}
+                    <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Next-generation Enterprise Architecture Management powered by Knowledge Graphs
+                        and AI, enabling smarter insights and adaptive decision-making.
+                    </p>
+
+                    {/* CTA */}
+                    <div className="mt-10 flex justify-center">
+                        <Button asChild size="lg" className="px-6">
+                            <Link to="/project" className="inline-flex items-center gap-2">
+                                Explore the Project
+                                <ArrowRight className="h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
