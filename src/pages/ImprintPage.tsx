@@ -1,71 +1,99 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { PageHeader } from "@/components/PageHeader";
+import { FileText } from "lucide-react";
 
 export default function ImprintPage() {
   return (
-    <div className="container mx-auto px-4 py-8 mt-14 text-left ">
-      <h1 className="text-3xl font-bold mb-6">Imprint (Impressum)</h1>
+    <div className="container mx-auto px-4 py-8">
+      <PageHeader
+        icon={<FileText className="h-8 w-8 text-blue-600" />}
+        title="Imprint"
+        description="Legal information and contact details for the EAGLE project."
+      />
 
-      <Card className="shadow-md border border-gray-200">
-        <CardContent className="space-y-6 text-sm leading-relaxed text-gray-700 pt-6">
-          {/* Media Owner */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Media owner and publisher (Medieninhaber &amp; Herausgeber)</h2>
-            <p>
-              EAGLE Project <br />
-              [Full legal entity name, e.g., "Institute for XYZ Research GmbH"] <br />
-              [Street + house number] <br />
-              [Postal code + City] <br />
-              Austria
-            </p>
-          </section>
+      <section className="mx-auto mt-6 max-w-4xl">
+        <Card className="rounded-2xl border bg-white/90 shadow-lg">
+          <CardContent className="space-y-6 text-sm leading-relaxed text-gray-700 text-left">
+            
+            {/* Media Owner */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">
+                Media owner and publisher
+              </h2>
+              <p>
+                Technische Universität Wien <br />
+                Institut für Information Systems Engineering <br />
+                Favoritenstraße 9-11 <br />
+                1040 Wien, Austria
+              </p>
+            </section>
 
-          {/* Contact */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Contact</h2>
-            <p>
-              Email: <a href="mailto:email@example.com" className="text-primary hover:underline">email@example.com</a> <br />
-              Telephone: [+43 XXX XXX XXXX]
-            </p>
-          </section>
+            {/* Contact */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">Contact</h2>
+              <p>
+                Univ. Prof. Dr. Gerti Kappel <br />
+                Email:{" "}
+                <a
+                  href="mailto:gertrude.kappel@tuwien.ac.at"
+                  className="text-primary hover:underline"
+                >
+                  gertrude.kappel@tuwien.ac.at
+                </a>
+                <br />
+                Tel: +43-1-58801-18870
+              </p>
+            </section>
 
-          {/* Company Details */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Company details</h2>
-            <p>
-              Legal form: [e.g., GmbH, Verein] <br />
-              Company registration number: [e.g., FN XXXXXX] <br />
-              Court of registration: [e.g., Handelsgericht Wien] <br />
-              VAT number: [e.g., ATU XXXXXXXX]
-            </p>
-          </section>
+            {/* Project Lead */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">Project Lead</h2>
+              <p>
+                Associate Prof. Dr. Dominik Bork <br />
+                Erzherzog-Johann-Platz 1 <br />
+                1040 Wien, Austria <br />
+                Email:{" "}
+                <a
+                  href="mailto:dominik.bork@tuwien.ac.at"
+                  className="text-primary hover:underline"
+                >
+                  dominik.bork@tuwien.ac.at
+                </a>
+                <br />
+                Tel: +43-1-58801-194308
+              </p>
+            </section>
 
-          {/* Purpose */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Purpose of the website</h2>
-            <p>
-              Information about the EAGLE research project and its activities.
-            </p>
-          </section>
+            {/* Company Details */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">Company details</h2>
+              <p>
+                Legal form: Universität <br />
+                Court of registration: Handelsgericht Wien
+              </p>
+            </section>
 
-          {/* Responsible Person */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Responsible for content</h2>
-            <p>
-              According to § 5 ECG and § 24 MedienG: <br />
-              [Full name, position] <br />
-              [Address, if different from above]
-            </p>
-          </section>
+            {/* Purpose */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">Purpose of the website</h2>
+              <p>
+                Information about the EAGLE research project and its activities.
+              </p>
+            </section>
 
-          {/* Supervisory Authority */}
-          <section>
-            <h2 className="text-lg font-semibold mb-1">Supervisory authority</h2>
-            <p>
-              [Only if applicable for regulated professions — e.g., Ministry, professional chamber]
-            </p>
-          </section>
-        </CardContent>
-      </Card>
+            {/* Responsible for Content */}
+            <section>
+              <h2 className="text-lg font-semibold mb-1">Responsible for content</h2>
+              <p>
+                According to § 5 ECG and § 24 MedienG: <br />
+                Associate Prof. Dr. Dominik Bork <br />
+                Technische Universität Wien <br />
+                Erzherzog-Johann-Platz 1, 1040 Wien
+              </p>
+            </section>
+          </CardContent>
+        </Card>
+      </section>
     </div>
   );
 }
