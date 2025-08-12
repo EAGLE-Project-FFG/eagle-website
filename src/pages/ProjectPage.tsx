@@ -232,18 +232,21 @@ export default function ProjectPage() {
                         <div className="grid gap-6 md:grid-cols-[55%_45%]">
                             {/* Text column */}
                             <div className="space-y-4">
-                                <p className="font-medium">
-                                    Enterprise Architecture Management (EAM) is increasingly vital for aligning complex IT 
-                                    landscapes with evolving business strategies. While established frameworks such as ArchiMate 
-                                    and TOGAF provide valuable structure, they remain largely manual, static, and disconnected 
-                                    from many critical data sources. As organizations face accelerating digital transformation, 
-                                    rising demands for real-time insights, and an ever-expanding variety of EA-relevant information, 
-                                    these traditional approaches struggle to deliver on the full potential of EAM. This results 
-                                    in a persistent gap between the theoretical benefits of EA and its practical impact, 
-                                    a gap EAGLE aims to close.
+                                <p className="text-base">
+                                    <span className="font-medium">Enterprise Architecture Management (EAM)</span> is increasingly vital for aligning complex IT
+                                    landscapes with evolving business strategies. While established frameworks such as
+                                    <span className="font-medium"> ArchiMate</span> and
+                                    <span className="font-medium"> TOGAF</span> provide valuable structure, they remain largely manual, static, and disconnected
+                                    from many critical data sources. As organizations face
+                                    <span className="font-medium"> accelerating digital transformation</span>,
+                                    rising demands for <span className="font-medium">real-time insights</span>, and an ever-expanding variety of
+                                    <span className="font-medium"> EA-relevant information</span>, these traditional approaches struggle to deliver on the full potential of EAM.
+                                    This results in a persistent gap between the <span className="font-medium">theoretical benefits of EA</span> and its
+                                    <span className="font-medium"> practical impact</span>, a gap EAGLE aims to close.
                                 </p>
+
                                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                                Challenges:
+                                    Challenges:
                                 </h3>
                                 <div className="grid gap-3">
                                     <div className="rounded-xl bg-muted/30 p-3">
