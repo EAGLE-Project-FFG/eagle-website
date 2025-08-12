@@ -13,11 +13,10 @@ export default function ImprintPage() {
 
       <section className="mx-auto mt-6 max-w-4xl">
         <Card className="rounded-2xl border bg-white/90 shadow-lg">
-          <CardContent className="space-y-6 text-sm leading-relaxed text-gray-700 text-left">
-            
+          <CardContent className="space-y-6 text-left text-sm leading-relaxed text-gray-700">
             {/* Media Owner */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">
+              <h2 className="mb-1 text-lg font-semibold">
                 Media owner and publisher
               </h2>
               <p>
@@ -30,7 +29,7 @@ export default function ImprintPage() {
 
             {/* Contact */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">Contact</h2>
+              <h2 className="mb-1 text-lg font-semibold">Contact</h2>
               <p>
                 Univ. Prof. Dr. Gerti Kappel <br />
                 Email:{" "}
@@ -47,7 +46,7 @@ export default function ImprintPage() {
 
             {/* Project Lead */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">Project Lead</h2>
+              <h2 className="mb-1 text-lg font-semibold">Project Lead</h2>
               <p>
                 Associate Prof. Dr. Dominik Bork <br />
                 Erzherzog-Johann-Platz 1 <br />
@@ -66,7 +65,7 @@ export default function ImprintPage() {
 
             {/* Company Details */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">Company details</h2>
+              <h2 className="mb-1 text-lg font-semibold">Company details</h2>
               <p>
                 Legal form: Universität <br />
                 Court of registration: Handelsgericht Wien
@@ -75,7 +74,9 @@ export default function ImprintPage() {
 
             {/* Purpose */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">Purpose of the website</h2>
+              <h2 className="mb-1 text-lg font-semibold">
+                Purpose of the website
+              </h2>
               <p>
                 Information about the EAGLE research project and its activities.
               </p>
@@ -83,7 +84,9 @@ export default function ImprintPage() {
 
             {/* Responsible for Content */}
             <section>
-              <h2 className="text-lg font-semibold mb-1">Responsible for content</h2>
+              <h2 className="mb-1 text-lg font-semibold">
+                Responsible for content
+              </h2>
               <p>
                 According to § 5 ECG and § 24 MedienG: <br />
                 Associate Prof. Dr. Dominik Bork <br />

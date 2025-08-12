@@ -31,24 +31,24 @@ export default function NewsDetailPage() {
   if (!entry) return <div className="p-6">News entry not found.</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-14">
+    <div className="container mx-auto mt-14 px-4 py-8">
       {/* Back link */}
       <Link
         to="/news"
-        className="mb-6 inline-flex items-center text-md font-medium text-primary hover:underline"
+        className="text-md mb-6 inline-flex items-center font-medium text-primary hover:underline"
       >
         ← Back to News
       </Link>
 
-      <Card className="rounded-2xl border bg-white/90 shadow-sm ring-1 ring-black/5 max-w-4xl mx-auto">
-        <CardContent className="p-6 md:p-8 text-left">
+      <Card className="mx-auto max-w-4xl rounded-2xl border bg-white/90 shadow-sm ring-1 ring-black/5">
+        <CardContent className="p-6 text-left md:p-8">
           {/* Title */}
-          <h1 className="text-3xl font-bold tracking-tight mb-4">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight">
             {entry.title}
           </h1>
 
           {/* Meta row */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+          <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <CalendarDays className="h-4 w-4" />
               {new Date(entry.date).toLocaleDateString(undefined, {

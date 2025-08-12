@@ -10,16 +10,14 @@ interface PageHeaderProps {
 export function PageHeader({ icon, title, description }: PageHeaderProps) {
   return (
     <div className="mx-auto mt-14 mb-6">
-      <div className="flex items-center gap-3 mb-3">
-        <div>
-          {icon}
-        </div>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+      <div className="mb-3 flex items-center gap-3">
+        <div>{icon}</div>
+        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
           {title}
         </h1>
       </div>
       {description && (
-        <p className="text-base text-muted-foreground text-left max-w-2xl mb-4">
+        <p className="mb-4 max-w-2xl text-left text-base text-muted-foreground">
           {description}
         </p>
       )}

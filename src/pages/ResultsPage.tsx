@@ -14,7 +14,7 @@ export default function ResultsPage() {
       />
 
       <section className="mx-auto mt-6 max-w-5xl">
-        <Card className="rounded-2xl border bg-white/90 shadow-lg overflow-hidden">
+        <Card className="overflow-hidden rounded-2xl border bg-white/90 shadow-lg">
           {/* Accent header */}
           <CardContent className="">
             <div className="flex items-start justify-between gap-4">
@@ -22,12 +22,14 @@ export default function ResultsPage() {
                 <h2 className="text-xl font-semibold tracking-tight">
                   Results are on the way!
                 </h2>
-                <p className="mt-1 text-sm text-muted-foreground max-w-3xl">
+                <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
                   We’re preparing publications, datasets, and open-source tools.
                   This page will list releases as they become available.
                 </p>
               </div>
-              <Badge variant="secondary" className="rounded-full">Coming soon</Badge>
+              <Badge variant="secondary" className="rounded-full">
+                Coming soon
+              </Badge>
             </div>
 
             <Separator className="my-6" />

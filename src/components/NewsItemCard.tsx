@@ -20,12 +20,11 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
   });
 
   return (
-    <Link to={to} className="block group h-full">
-      <Card className="h-full rounded-xl border bg-white/90 backdrop-blur ring-1 ring-black/5
-                   transition-all hover:-translate-y-0.5 hover:shadow-lg px-2 py-2">
-        <CardContent className="p-4 flex flex-col h-full">
+    <Link to={to} className="group block h-full">
+      <Card className="h-full rounded-xl border bg-white/90 px-2 py-2 ring-1 ring-black/5 backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <CardContent className="flex h-full flex-col p-4">
           {/* Title */}
-          <h2 className="text-xl text-left font-semibold tracking-tight group-hover:text-primary transition-colors">
+          <h2 className="text-left text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
             {title}
           </h2>
 
@@ -45,7 +44,11 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
           {tags.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-1.5">
               {tags.map((t) => (
-                <Badge key={t} variant="secondary" className="rounded-full px-2 py-0.5 text-[11px]">
+                <Badge
+                  key={t}
+                  variant="secondary"
+                  className="rounded-full px-2 py-0.5 text-[11px]"
+                >
                   {t}
                 </Badge>
               ))}
@@ -54,7 +57,7 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
 
           {/* Footer */}
           <Separator className="my-4" />
-          <div className="flex items-center gap-1 text-sm font-medium text-primary mt-auto">
+          <div className="mt-auto flex items-center gap-1 text-sm font-medium text-primary">
             Read More
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </div>

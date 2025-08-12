@@ -29,8 +29,8 @@ const partners: Partner[] = [
 
 function PartnerCard({ partner }: { partner: Partner }) {
   return (
-    <Card className="group relative overflow-hidden rounded-2xl shadow-lg h-full">
-      <CardContent className="relative py-2 flex flex-col h-full">
+    <Card className="group relative h-full overflow-hidden rounded-2xl shadow-lg">
+      <CardContent className="relative flex h-full flex-col py-2">
         {/* Logos */}
         <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
           {partner.logos.map((src, i) => (
@@ -48,8 +48,8 @@ function PartnerCard({ partner }: { partner: Partner }) {
           ))}
         </div>
 
-        <h3 className="text-lg font-semibold text-center">{partner.name}</h3>
-        <p className="mt-2 text-sm text-muted-foreground text-left flex-grow">
+        <h3 className="text-center text-lg font-semibold">{partner.name}</h3>
+        <p className="mt-2 flex-grow text-left text-sm text-muted-foreground">
           {partner.description}
         </p>
 
@@ -76,7 +76,7 @@ export default function PartnersPage() {
         description="Project partners collaborating on EAGLE from industry and academia."
       />
 
-      <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2">
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {partners.map((p) => (
           <PartnerCard key={p.name} partner={p} />
         ))}

@@ -17,23 +17,27 @@ export default function NavBar() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-white/95 shadow-lg backdrop-blur border-b">
+    <nav className="fixed top-0 left-0 z-50 w-full border-b bg-white/95 shadow-lg backdrop-blur">
       <div className="flex h-16 items-center justify-between px-4">
         {/* Logo + Project Name */}
         <NavLink to="/" className="flex items-center gap-3">
-          <img src="/eagle-logo.png" alt="EAGLE Logo" className="h-10 w-14 drop-shadow" />
+          <img
+            src="/eagle-logo.png"
+            alt="EAGLE Logo"
+            className="h-10 w-14 drop-shadow"
+          />
           <span className="text-3xl font-extrabold tracking-tight drop-shadow-[0_0.5px_0.5px_rgba(0,0,0,0.15)]">
-            <span className="bg-gradient-to-r from-[#C0D444] to-[#A4BA35] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(192,212,68,0.25)]">
+            <span className="bg-gradient-to-r from-[#C0D444] to-[#A4BA35] bg-clip-text text-transparent drop-shadow-[0_0_2px_rgba(192,212,68,0.25)]">
               EA
             </span>
-            <span className="bg-gradient-to-r from-[#1E4A89] to-[#163C70] text-transparent bg-clip-text drop-shadow-[0_0_2px_rgba(30,74,137,0.25)]">
+            <span className="bg-gradient-to-r from-[#1E4A89] to-[#163C70] bg-clip-text text-transparent drop-shadow-[0_0_2px_rgba(30,74,137,0.25)]">
               GLE
             </span>
           </span>
         </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-1 ml-8">
+        <div className="ml-8 hidden gap-1 md:flex">
           {NAV_ITEMS.map((item) => {
             const isActive = location.pathname === item.to;
             return (
@@ -41,10 +45,10 @@ export default function NavBar() {
                 key={item.label}
                 to={item.to}
                 className={({ isActive }) =>
-                  `relative px-4 py-2 rounded-xl transition text-base font-semibold
-                  ${isActive 
-                    ? "bg-primary/10 text-primary" 
-                    : "hover:bg-primary/5 text-neutral-700"
+                  `relative rounded-xl px-4 py-2 text-base font-semibold transition ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-neutral-700 hover:bg-primary/5"
                   }`
                 }
                 aria-current={isActive ? "page" : undefined}
@@ -62,7 +66,7 @@ export default function NavBar() {
             size="icon"
             variant="ghost"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            className="rounded-lg cursor-pointer"
+            className="cursor-pointer rounded-lg"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? (
@@ -77,18 +81,18 @@ export default function NavBar() {
       {/* Mobile Menu Dropdown */}
       {mobileOpen && (
         <div className="absolute top-16 left-0 z-50 w-full animate-in fade-in-0 slide-in-from-top-2 md:hidden">
-          <div className="mx-2 rounded-2xl bg-white shadow-xl border mt-2 p-4 flex flex-col gap-2">
+          <div className="mx-2 mt-2 flex flex-col gap-2 rounded-2xl border bg-white p-4 shadow-xl">
             {NAV_ITEMS.map((item) => {
               const isActive = location.pathname === item.to;
               return (
                 <NavLink
                   key={item.label}
                   to={item.to}
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-semibold transition
-                    ${isActive ?
-                      "bg-primary/10 text-primary" :
-                      "hover:bg-primary/5 text-neutral-700"}
-                  `}
+                  className={`block w-full rounded-lg px-4 py-3 text-base font-semibold transition ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-neutral-700 hover:bg-primary/5"
+                  } `}
                   onClick={() => setMobileOpen(false)}
                   aria-current={isActive ? "page" : undefined}
                 >
