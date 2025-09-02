@@ -25,6 +25,13 @@ const partners: Partner[] = [
       "Based at the Institute of Information Systems Engineering, our research unit focuses on business informatics that integrates theory and methods of information systems and computer science.",
     website: "https://www.big.tuwien.ac.at/index.php",
   },
+  {
+    name: "TU Wien - Databases and Artificial Intelligence Group",
+    logos: ["/tu-wien-logo.svg", "/dbai-logo.png"],
+    description:
+      "Our research is located at the interface between methods from Theoretical Computer Science (such as logic, algorithmics, approximation, and complexity theory) and their application to various areas of Computer Science such as Database Theory, Artificial Intelligence, Knowledge Representation & Reasoning, Scheduling and Planning, as well as Graph Theory.",
+    website: "https://www.dbai.tuwien.ac.at/",
+  },
 ];
 
 function PartnerCard({ partner }: { partner: Partner }) {
