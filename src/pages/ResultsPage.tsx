@@ -27,6 +27,50 @@ type Publication = {
 
 const publications: Publication[] = [
   {
+    citationKey: "CAISE26-Shortcut-Understanding",
+    title:
+      "Shortcut or Understanding? Diagnosing LLM Type Prediction in Conceptual Models",
+    authors: "Syed Juned Ali, Zhuoxun Zheng, Dominik Bork",
+    venue: "CAiSE",
+    year: "2026",
+    type: "Conference paper",
+    url: "/publications/2026_Shortcut_or_Understanding.pdf",
+    citation:
+      "Ali, S.J., Zheng, Z., & Bork, D. (2026). Shortcut or Understanding? Diagnosing LLM Type Prediction in Conceptual Models. In L. Fuentes, P. Plebani, C. Combi, & H. Reijers (Eds.), Advanced Information Systems Engineering. CAiSE 2026. Lecture Notes in Computer Science, vol 16559. Springer, Cham. https://doi.org/10.1007/978-3-032-28117-3_3",
+    bibtex: `@inproceedings{CAISE26-Shortcut-Understanding,
+  author = {Syed Juned Ali and Zhuoxun Zheng and Dominik Bork},
+  booktitle = {Advanced Information Systems Engineering. CAiSE 2026},
+  doi = {10.1007/978-3-032-28117-3_3},
+  pages = {37--55},
+  publisher = {Springer},
+  series = {Lecture Notes in Computer Science},
+  title = {Shortcut or Understanding? Diagnosing LLM Type Prediction in Conceptual Models},
+  url = {/publications/2026_Shortcut_or_Understanding.pdf},
+  volume = {16559},
+  year = {2026}
+}`,
+  },
+  {
+    citationKey: "KI26-EAGLE",
+    title:
+      "Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project",
+    authors:
+      "Zhuoxun Zheng, Syed Juned Ali, Philipp-Lorenz Glaser, Tobias Jordan, Sebastian Zib, Andjela Djelic, Thomas Hofleithner, Franz Novak, Emanuel Sallinger, Dominik Bork",
+    venue: "Under Review",
+    year: "2026",
+    type: "Manuscript",
+    url: "/publications/2026_KI_EAGLE.pdf",
+    citation:
+      "Zheng, Z., Ali, S.J., Glaser, P.-L., Jordan, T., Zib, S., Djelic, A., Hofleithner, T., Novak, F., Sallinger, E., & Bork, D. (2026). Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project. Under review.",
+    bibtex: `@article{KI26-EAGLE,
+  author = {Zhuoxun Zheng and Syed Juned Ali and Philipp-Lorenz Glaser and Tobias Jordan and Sebastian Zib and Andjela Djelic and Thomas Hofleithner and Franz Novak and Emanuel Sallinger and Dominik Bork},
+  note = {Under review},
+  title = {Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project},
+  url = {/publications/2026_KI_EAGLE.pdf},
+  year = {2026}
+}`,
+  },
+  {
     citationKey: "EMMSAD26-LLM-QA",
     title:
       "Uncovering LLM's Capabilities in Model-based Question Answering for UML Class Diagrams",
