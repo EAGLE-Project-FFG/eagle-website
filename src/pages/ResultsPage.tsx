@@ -20,12 +20,30 @@ type Publication = {
   venue: string;
   year: string;
   type: string;
-  url: string;
+  url?: string;
   citation: string;
   bibtex: string;
 };
 
 const publications: Publication[] = [
+  {
+    citationKey: "KI26-EAGLE",
+    title:
+      "Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project",
+    authors:
+      "Zhuoxun Zheng, Syed Juned Ali, Philipp-Lorenz Glaser, Tobias Jordan, Sebastian Zib, Andjela Djelic, Thomas Hofleithner, Franz Novak, Emanuel Sallinger, Dominik Bork",
+    venue: "Under Review",
+    year: "2026",
+    type: "Manuscript",
+    citation:
+      "Zheng, Z., Ali, S.J., Glaser, P.-L., Jordan, T., Zib, S., Djelic, A., Hofleithner, T., Novak, F., Sallinger, E., & Bork, D. (2026). Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project. Under review.",
+    bibtex: `@article{KI26-EAGLE,
+  author = {Zhuoxun Zheng and Syed Juned Ali and Philipp-Lorenz Glaser and Tobias Jordan and Sebastian Zib and Andjela Djelic and Thomas Hofleithner and Franz Novak and Emanuel Sallinger and Dominik Bork},
+  note = {Under review},
+  title = {Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project},
+  year = {2026}
+}`,
+  },
   {
     citationKey: "CAISE26-Shortcut-Understanding",
     title:
@@ -47,26 +65,6 @@ const publications: Publication[] = [
   title = {Shortcut or Understanding? Diagnosing LLM Type Prediction in Conceptual Models},
   url = {/publications/2026_Shortcut_or_Understanding.pdf},
   volume = {16559},
-  year = {2026}
-}`,
-  },
-  {
-    citationKey: "KI26-EAGLE",
-    title:
-      "Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project",
-    authors:
-      "Zhuoxun Zheng, Syed Juned Ali, Philipp-Lorenz Glaser, Tobias Jordan, Sebastian Zib, Andjela Djelic, Thomas Hofleithner, Franz Novak, Emanuel Sallinger, Dominik Bork",
-    venue: "Under Review",
-    year: "2026",
-    type: "Manuscript",
-    url: "/publications/2026_KI_EAGLE.pdf",
-    citation:
-      "Zheng, Z., Ali, S.J., Glaser, P.-L., Jordan, T., Zib, S., Djelic, A., Hofleithner, T., Novak, F., Sallinger, E., & Bork, D. (2026). Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project. Under review.",
-    bibtex: `@article{KI26-EAGLE,
-  author = {Zhuoxun Zheng and Syed Juned Ali and Philipp-Lorenz Glaser and Tobias Jordan and Sebastian Zib and Andjela Djelic and Thomas Hofleithner and Franz Novak and Emanuel Sallinger and Dominik Bork},
-  note = {Under review},
-  title = {Using Enterprise Architecture Knowledge Graphs as Digital Shadows for Enterprise Application Landscapes - The EAGLE Research Project},
-  url = {/publications/2026_KI_EAGLE.pdf},
   year = {2026}
 }`,
   },
@@ -110,8 +108,8 @@ export default function ResultsPage() {
               Publications
             </h2>
             <p className="text-sm text-muted-foreground">
-              Available publications are listed below with direct PDF access and
-              citation details.
+              Publications and manuscripts are listed below with citation
+              details and PDF access where available.
             </p>
           </div>
 
@@ -208,12 +206,14 @@ function PublicationCard({
         </div>
 
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <Button asChild size="sm">
-            <a href={publication.url} target="_blank" rel="noreferrer">
-              Open PDF
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
+          {publication.url && (
+            <Button asChild size="sm">
+              <a href={publication.url} target="_blank" rel="noreferrer">
+                Open PDF
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
           <Button
             variant="outline"
             size="sm"
