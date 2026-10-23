@@ -5,9 +5,6 @@ author: "EAGLE Project Team"
 slug: "blickpunkt-forschung-2026"
 tags:
   - Event
-  - Enterprise Architecture
-  - Knowledge Graphs
-  - Artificial Intelligence
 ---
 
 **What stops working when a server moves — and how quickly can an organization give a reliable answer?** This question opened the EAGLE presentation at TU Wien’s 12th **Blickpunkt Forschung**, “KI im Unternehmen – Forschung trifft Praxis,” on **October 15, 2026**.
