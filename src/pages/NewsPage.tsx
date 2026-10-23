@@ -9,6 +9,10 @@ const newsFiles = import.meta.glob("/src/news/*.md", { eager: true });
 function parseNews(): NewsEntry[] {
   return Object.values(newsFiles).map((mod) => {
     const m = mod as NewsModule;
+    // A dedicated thumbnail takes precedence over the first inline Markdown image.
+    const firstImage = m.markdown.match(
+      /!\[([^\]]*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/,
+    );
     return {
       title: m.attributes.title,
       date: m.attributes.date,
@@ -16,6 +20,10 @@ function parseNews(): NewsEntry[] {
       slug: m.attributes.slug,
       tags: m.attributes.tags ?? [],
       content: m.markdown,
+      thumbnail: m.attributes.thumbnail ?? firstImage?.[2],
+      thumbnailAlt:
+        m.attributes.thumbnailAlt ??
+        (m.attributes.thumbnail ? m.attributes.title : firstImage?.[1]),
     };
   });
 }
@@ -36,8 +44,8 @@ export default function NewsPage() {
         description="Stay updated with the latest developments in the EAGLE project."
       />
 
-      {/* Responsive grid: 1 col on mobile, 2 cols on md+ */}
-      <div className="mt-6 grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+      {/* Give the thumbnail and title enough room before switching to two columns. */}
+      <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
         {newsEntries.map((n) => (
           <NewsItemCard
             key={n.slug}
@@ -46,6 +54,8 @@ export default function NewsPage() {
             date={n.date}
             author={n.author}
             tags={n.tags}
+            thumbnail={n.thumbnail}
+            thumbnailAlt={n.thumbnailAlt}
           />
         ))}
       </div>

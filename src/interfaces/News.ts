@@ -6,6 +6,8 @@ export type NewsModule = {
     author: string;
     slug: string;
     tags?: string[];
+    thumbnail?: string;
+    thumbnailAlt?: string;
   };
   markdown: string;
 };
@@ -18,4 +20,6 @@ export interface NewsEntry {
   slug: string;
   content: string;
   tags?: string[];
+  thumbnail?: string;
+  thumbnailAlt?: string;
 }

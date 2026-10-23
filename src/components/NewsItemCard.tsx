@@ -10,10 +10,19 @@ type Props = {
   date: string;
   author: string;
   tags?: string[];
+  thumbnail?: string;
+  thumbnailAlt?: string;
 };
 
-// eslint-disable-next-line react-x/no-unstable-default-props
-export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
+export function NewsItemCard({
+  to,
+  title,
+  date,
+  author,
+  tags,
+  thumbnail,
+  thumbnailAlt,
+}: Props) {
   const prettyDate = new Date(date).toLocaleDateString(undefined, {
     year: "numeric",
     month: "short",
@@ -21,46 +30,78 @@ export function NewsItemCard({ to, title, date, author, tags = [] }: Props) {
   });
 
   return (
-    <Link to={to} className="group block h-full">
-      <Card className="h-full rounded-xl border bg-white/90 px-2 py-2 ring-1 ring-black/5 backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-lg">
-        <CardContent className="flex h-full flex-col p-4">
-          {/* Title */}
-          <h2 className="text-left text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
-            {title}
-          </h2>
+    <Link
+      to={to}
+      className="group block h-full rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+    >
+      <Card className="h-full gap-0 rounded-xl border bg-white py-0 shadow-sm transition-all hover:border-[#1E4A89]/25 hover:shadow-md">
+        <CardContent className="flex flex-1 flex-col p-5 sm:p-6">
+          <div className="flex items-start gap-4 sm:gap-5">
+            <div className="aspect-[4/3] w-28 shrink-0 overflow-hidden rounded-lg bg-muted sm:w-40">
+              {thumbnail ? (
+                <img
+                  src={thumbnail}
+                  alt={thumbnailAlt ?? title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105"
+                />
+              ) : (
+                <div
+                  aria-hidden="true"
+                  className="flex h-full flex-col items-center justify-center gap-1 bg-gradient-to-br from-slate-100 via-white to-[#C0D444]/20"
+                >
+                  <img
+                    src="/eagle-logo.png"
+                    alt=""
+                    className="h-10 w-14 object-contain sm:h-12 sm:w-16"
+                  />
+                  <span className="text-lg font-extrabold tracking-tight sm:text-xl">
+                    <span className="text-[#A4BA35]">EA</span>
+                    <span className="text-[#1E4A89]">GLE</span>
+                  </span>
+                </div>
+              )}
+            </div>
+            <div className="min-w-0 text-left">
+              <h2 className="text-lg leading-snug font-semibold tracking-tight transition-colors group-hover:text-[#1E4A89] sm:text-xl">
+                {title}
+              </h2>
 
-          {/* Meta row */}
-          <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/40 px-2 py-0.5">
-              <CalendarDays className="h-4 w-4" />
-              {prettyDate}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/40 px-2 py-0.5">
-              <User2 className="h-4 w-4" />
-              {author}
-            </span>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <CalendarDays className="h-3.5 w-3.5 shrink-0" />
+                <time dateTime={date}>{prettyDate}</time>
+              </span>
+            </div>
           </div>
 
-          {/* Tags */}
-          {tags.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {tags.map((t) => (
-                <Badge
-                  key={t}
-                  variant="secondary"
-                  className="rounded-full px-2 py-0.5 text-[11px]"
-                >
-                  {t}
-                </Badge>
-              ))}
-            </div>
-          )}
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+              <User2 className="h-3.5 w-3.5 shrink-0" />
+              {author}
+            </span>
+            {tags && tags.length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {tags.map((t) => (
+                  <Badge
+                    key={t}
+                    variant="secondary"
+                    className="rounded-full px-2 py-0.5 text-[11px]"
+                  >
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Footer */}
-          <Separator className="my-4" />
-          <div className="mt-auto flex items-center gap-1 text-sm font-medium text-primary">
-            Read More
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          <div className="mt-auto pt-4">
+            <Separator className="mb-4" />
+            <div className="flex items-center justify-between text-sm font-medium text-[#1E4A89]">
+              Read More
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </div>
           </div>
         </CardContent>
       </Card>
